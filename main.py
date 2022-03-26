@@ -1,21 +1,12 @@
-from re import A
-from tools.Vision import Vision
 import keyboard
-import threading
+from tools.Bot import Bot
+import time
 
-monitor = int(input('Monitor: '))
-model = Vision.load_dnn('model/last.pt')
+from tools.Mechanisms import Mechanisms
 
-def detect_enemy(): 
-    Vision.capture_screen(monitor)
-    img = Vision.read_img('./tools/ss_cache/screen.jpg')
-    cord = Vision.detection(model, img, confidence=0.15)
-    Vision.draw_rectangle(cord, img)
+toggle_key = input('Select toggle key: ')
 
-while True:
-    if keyboard.read_key() == 'q':
-        if threading.active_count() < 4:
-            threading.Thread(target=detect_enemy).start()
-    if keyboard.read_key() == 'n':
-        break
+bot = Bot(1, toggle_key)
+keyboard.on_press(bot.handle_keypress)
 
+bot.bot_sequence()
