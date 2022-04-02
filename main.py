@@ -4,9 +4,9 @@ import time
 
 from tools.Mechanisms import Mechanisms
 
-toggle_key = input('Select toggle key: ')
+mode = input('Select target mode: ')
+distance = int(input('Select distance from crosshair: '))
 
-bot = Bot(1, toggle_key)
-keyboard.on_press(bot.handle_keypress)
+bot = Bot(1, mode, distance)
 
 bot.bot_sequence()
