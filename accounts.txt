@@ -1,3 +1,0 @@
-USER:EMAIL:PASS
-
-netox_2000:netox12365@karavic.com:hackerman_2000 mouse-sensitivity: 1.00 zoom-sensitivity:0.35
